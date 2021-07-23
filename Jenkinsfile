@@ -16,5 +16,24 @@ pipeline {
         
       }  
     }
+    stage ('stage nexus push'){
+      steps {
+        script {
+          nexusArtifactUploader artifacts: [
+            [
+              artifactId: 'hello-world',
+              classifier: '', 
+              file: 'target/hello-world-0.1.0.jar', 
+              type: 'jar']], 
+            credentialsId: 'pavan_nexus', 
+            groupId: 'dev',
+            nexusUrl: '172.31.6.132:8081',
+            nexusVersion: 'nexus3', 
+            protocol: 'http',
+            repository: 'Demo_repo', 
+            version: "${BUILD_NUMBER}"
+        }
+      }
+    }
   }
 }
