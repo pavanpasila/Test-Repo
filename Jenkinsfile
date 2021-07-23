@@ -45,7 +45,7 @@ pipeline {
     remote.password = 'jenkins123!'
     remote.allowAnyHosts = true
       sshCommand remote: remote, command: "ls -lrt"
-      sshCommand remote: remote, command: "curl -L -X GET http://3.22.41.142:8081/service/rest/v1/search/assets/download?sort=version&repository=Demo_repo&group=dev&name=hello-world&maven.baseVersion=${BUILD_NUMBER}"
+      sshCommand remote: remote, command: "curl -L -X GET 'http://3.22.41.142:8081/service/rest/v1/search/assets/download?sort=version&repository=Demo_repo&group=dev&name=hello-world&maven.baseVersion=${BUILD_NUMBER}' --output /tmp/hello-world.jar"
         }
       }
     }
