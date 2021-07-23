@@ -35,5 +35,19 @@ pipeline {
         }
       }
     }
+    stage ('Deploy Artifact into server2'){
+      steps {
+        script {
+        def remote = [:]
+    remote.name = 'ip-172-31-18-74.us-east-2.compute.internal'
+    remote.host = '172.31.18.74'
+    remote.user = 'new_user'
+    remote.password = 'jenkins123!'
+    remote.allowAnyHosts = true
+      sshCommand remote: remote, command: "ls -lrt"
+      sshCommand remote: remote, command: "curl -L -X GET http://3.22.41.142:8081/service/rest/v1/search/assets/download?sort=version&repository=Demo_repo&group=dev&name=hello-world&maven.baseVersion=${BUILD_NUMBER}"
+        }
+      }
+    }
   }
 }
