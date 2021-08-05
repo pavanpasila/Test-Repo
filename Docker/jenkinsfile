@@ -16,5 +16,11 @@ pipeline {
         
       }  
     }
+    stage ('docker build stage')  {
+    steps {
+    sh 'docker --version'
+    
+    }
+    }
   }
 }
