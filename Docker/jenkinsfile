@@ -19,6 +19,7 @@ pipeline {
     stage ('docker build stage')  {
     steps {
     sh 'docker --version'
+    sh 'docker build -t helloworld-v1'
     
     }
     }
