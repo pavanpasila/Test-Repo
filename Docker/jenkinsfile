@@ -20,7 +20,7 @@ pipeline {
     steps {
     sh 'docker --version'
     sh 'docker build -t helloworld-v1 .'
-    
+    sh 'docker images'
     }
     }
   }
