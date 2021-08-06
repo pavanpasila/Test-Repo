@@ -18,9 +18,14 @@ pipeline {
     }
     stage ('docker build stage')  {
     steps {
-    sh 'docker --version'
-    sh 'docker build -t helloworld-v1 .'
-    sh 'docker images'
+    script {
+    // This step should not normally be used in your script. Consult the inline help for details.
+withDockerRegistry(credentialsId: 'ecr:us-east-2:AWS Credentials', url: 'public.ecr.aws/m1a9e8g6/docker_repo') {
+    // some block
+def myImage = docker.build("helloworld")
+myImage.push("v1")
+}
+    }
     }
     }
   }
