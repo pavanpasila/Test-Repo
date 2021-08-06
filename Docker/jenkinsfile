@@ -22,12 +22,11 @@ pipeline {
     // This step should not normally be used in your script. Consult the inline help for details.
 withDockerRegistry(credentialsId: 'ecr:us-east-2:AWS Credentials', url: 'https://836267957233.dkr.ecr.us-east-2.amazonaws.com') {
     // some block
-}
-def myImage = docker.build("docker_repo")
+    def myImage = docker.build("docker_repo")
 myImage.push("v1")
+}
 }
     }
     }
     }
   }
-}
