@@ -25,7 +25,7 @@ imagename = "docker_repo"
 docker.withRegistry('https://836267957233.dkr.ecr.us-east-2.amazonaws.com/docker_repo','ecr:us-east-2:aws_credentials') {
     // some block
     def myImage = docker.build("${imagename}")
-myImage.push("v1")
+myImage.push("${BUILD_NUMBER}")
 }
 }
     }
