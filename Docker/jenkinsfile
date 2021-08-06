@@ -1,7 +1,4 @@
 pipeline {
-environment { 
-imagename = "docker_repo"
-}
   
   agent any
   
@@ -23,9 +20,9 @@ imagename = "docker_repo"
     steps {
     script {
     // This step should not normally be used in your script. Consult the inline help for details.
-withDockerRegistry('https://836267957233.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:AWS Credentials', ) {
+withDockerRegistry(credentialsId: 'ecr:us-east-2:AWS Credentials', url: 'https://836267957233.dkr.ecr.us-east-2.amazonaws.com') {
     // some block
-    def myImage = docker.build("${imagename}")
+    def myImage = docker.build("docker_repo")
 myImage.push("v1")
 }
 }
