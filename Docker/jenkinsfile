@@ -24,7 +24,7 @@ imagename = "docker_repo"
     // This step should not normally be used in your script. Consult the inline help for details.
 docker.withRegistry('https://836267957233.dkr.ecr.us-east-2.amazonaws.com/docker_repo','ecr:us-east-2:aws_credentials') {
     // some block
-    def myImage = docker.build("${BUILD_NUMBER}")
+    def myImage = docker.build("${imagename}")
 myImage.push("${BUILD_NUMBER}")
 }
 }
