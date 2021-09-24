@@ -4,7 +4,7 @@
             "Type": "AWS::S3::Bucket",
             "DeletionPolicy": "Retain",
             "Properties": {
-                "BucketName": "cfn-testbucket"
+                "BucketName": "cfn-testbucket-git"
             }
         }
     }
