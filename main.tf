@@ -17,9 +17,9 @@ resource "aws_s3_bucket" "b" {
 #         # The name of the Terraform Cloud workspace to store Terraform state files in.
          workspaces {
            name = "example-workspace"
-#         }
-#       }
-#     }
+      }
+       }
+     }
 #
 #     # An example resource that does nothing.
      resource "null_resource" "example" {
