@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "b" {
    terraform {
        backend "remote" {
 #         # The name of your Terraform Cloud organization.
-         organization = "example-organization"
+         organization = "Test_org_pavan"
 #
 #         # The name of the Terraform Cloud workspace to store Terraform state files in.
          workspaces {
